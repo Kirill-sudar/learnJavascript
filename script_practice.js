@@ -42,7 +42,7 @@ for (var y = 0; y < size; y++) {
 console.log(board);
 //Задание 4
 function isLeapYear (year) {
-    return year % 4 === 0;
+    return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
 }
 var year = +prompt("Введи год:");
 
