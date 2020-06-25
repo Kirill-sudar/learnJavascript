@@ -47,7 +47,7 @@ let filter = arr.filter(function(elem){
 if(Array.isArray(elem)){
 return true
 } else return false
-})
+});
 console.log(filter)
 
 //Задание 10
