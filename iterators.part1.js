@@ -31,16 +31,16 @@ console.log(check);
 //Задание 5
 //5. Дан массив с числами. Проверь то, что в нем есть отрицательные элементы.
 
-const numbers_two=[1,-2,3,-4];
+const numbersArray=[1,-2,3,-4];
 
-const containsNegative=numbers_two.some(number=>number<0)
+const containsNegative=numbersArray.some(number=>number<0)
 
 console.log(containsNegative);
 
 //Задание 6(filter)
 //6. Дан массив с числами. Оставь в нем только отрицательные числа
 
-const containsNegativeTwo=numbers_two.filter(number=>{return number<0;})
+const containsNegativeTwo=numbersArray.filter(number=>{return number<0;})
 
 console.log(containsNegativeTwo);
 
@@ -65,10 +65,7 @@ console.log(stringArray.filter(number=>number.length>5))
 
 let arr = [1, 2, [3, 4, 5]];
 
-let filter = arr.filter( function(elem) {
-
-if(Array.isArray(elem)){return true}
-else return false});
+let filter = arr.filter(isArray => Array.isArray(isArray));
 
 console.log(filter)
 
@@ -76,7 +73,7 @@ console.log(filter)
 //9. Дан массив, в нем могут быть обычные элементы и подмассивы, например [1, 2, [3, 4], 5, [6, 7]].
 //Оставь в нем только подмассивы.
 
-const negative_three=numbers_two.filter( number=>{ return number<0 } );
+const negative_three=numbersArray.filter( number=>{ return number<0 } );
 
 console.log(negative_three.length);
 
