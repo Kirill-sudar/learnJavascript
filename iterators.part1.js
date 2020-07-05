@@ -93,13 +93,10 @@ console.log(reduceArray);
 
 let iteratorArray = [1, 2, 3, 0, 4, 5, 6];
 
-let reduceIterator = iteratorArray.reduce((sum, el) => {
+let reduceIterator = iteratorArray.reduce( (sum, el) =>{
 
-if (el == 0) {
+if (el == 0) { console.log(sum) }
 
-console.log(sum);
-
-}
 else {return sum + el;}
 
 });
@@ -109,14 +106,11 @@ else {return sum + el;}
 // Найди сумму последних N элементов до первого нуля с конца.
 // Пример: [1, 2, 3, 0, 4, 5, 6] - суммируем последние 3 элемента, так как дальше стоит элемент с числом 0.
 
-let reduceIteratorTwo = iteratorArray.reduceRight((sum, el) => {
+let reduceIteratorTwo = iteratorArray.reduceRight( (sum, el) => {
 
-if (el == 0) {
+if (el == 0) {  console.log( sum ); }
 
-console.log(sum);
-
-}
-else {return sum + el;}
+else { return sum + el; }
 
 });
 
@@ -126,12 +120,9 @@ else {return sum + el;}
 //Узнай сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
 let reduceIteratorThree = iteratorArray.reduce((sum, el, index) => {
 
-if (sum >10) {
+if (sum >10) { console.log(sum); console.log(index); }
 
-console.log(sum);
-console.log(index);
-}
-else {return sum + el;}
+else { return sum + el; }
 
 });
 
@@ -140,12 +131,9 @@ else {return sum + el;}
 // Узнай сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
 let reduceIteratorFour = iteratorArray.reduceRight((sum, el, index) => {
 
-if (sum >10) {
+if (sum >10) {  console.log( sum ); console.log( index );  }
 
-console.log(sum);
-console.log(index);
-}
-else {return sum + el;}
+else { return sum + el; }
 
 });
 
@@ -155,9 +143,10 @@ else {return sum + el;}
 
 let exerciseSixteen = [-1, -2, 3, 4, 5];
 
-let stageOne = exerciseSixteen.filter(el=>el>0 );
+let stageOne = exerciseSixteen.filter(el => el >0 );
 
-console.log(stageOne);
+console.log( stageOne );
 
-let stageTwo=stageOne.map(Math.sqrt);
-console.log(stageTwo);
+let stageTwo = stageOne.map(Math.sqrt);
+
+console.log( stageTwo );
