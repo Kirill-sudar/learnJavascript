@@ -22,10 +22,10 @@ else {return sum + el;}
 
 let reduceIteratorTwo = iteratorArray.reduceRight( (sum, el) => {
 
-if (el == 0) {  console.log( sum ); }
-
-else { return sum + el; }
-
+if (el == 0) {  console.log( sum );
+} else {
+  return sum + el;
+  }
 });
 
 
@@ -34,10 +34,12 @@ else { return sum + el; }
 //Узнай сколько элементов с начала массива надо сложить, чтобы в сумме получилось больше 10-ти.
 let reduceIteratorThree = iteratorArray.reduce((sum, el, index) => {
 
-if (sum >10) { console.log(sum); console.log(index); }
-
-else { return sum + el; }
-
+if (sum >10) {
+  console.log(sum);
+    console.log(index);
+} else {
+  return sum + el;
+  }
 });
 
 //Задание 15
@@ -46,10 +48,13 @@ else { return sum + el; }
 let i=0;
 let reduceIteratorFour = iteratorArray.reduceRight((sum, el, index) => {
 
-if (sum>10) {  console.log( sum ); console.log( index+i );  }
-
-else {++i; return sum + el;  }
-
+if (sum>10) {
+  console.log( sum );
+     console.log( index+i );
+ }else {
+  ++i;
+    return sum + el;
+  }
 });
 
 //Задание 16
