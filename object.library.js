@@ -61,23 +61,26 @@ let obj = {
     get getter(){
         return  this._genres;
         }
-    }
-}
+    },
 
-function addBookToProperGenre(bookNAme,
-                              bookPrice
-                             ) {
-  let book = {
-    name:bookName,
-    price:bookprice,
-    }
-  this._genres[genreName].push(book);
-}
+  addBookToProperGenre(bookName,
+                       bookPrice
+                    ){
+    let book = {
+        name:bookName,
+        price:bookprice,
+        }
+    this._genres[genreName].push(book);
+  },
 
-function getRandomBook(genreName) {
+  getRandomBook(genreName) {
     books = this._genres[genreName];
     genreName[randomINdex] = Math.floor(Math.random()*Crime.length);
+  }
+
 }
+
+obj.addBookToProperGenre('Остров', 50)
 myBook = addBookToProperGenre();
 console.log(myBook);
 
