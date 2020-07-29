@@ -53,36 +53,43 @@
 
 // {ваш код здесь}
 
-let obj = {
-  _genres:{
-    Crime:[],
-    scienceFiction:[],
-    Thriller:[],
-    get getter(){
-        return  this._genres;
-        }
-    },
+let library = {
 
-  addBookToProperGenre(bookName,
-                       bookPrice
-                    ){
-    let book = {
-        name:bookName,
-        price:bookprice,
-        }
-    this._genres[genreName].push(book);
+  _genres: {
+      "Crime": [],
+      "scienceFiction": [],
+      "Thriller": [],
   },
 
-  getRandomBook(genreName) {
-    books = this._genres[genreName];
-    genreName[randomINdex] = Math.floor(Math.random()*Crime.length);
+  get getter()  {
+      return  this._genres;
+      },
+
+  addBookToProperGenre( genreName, bookName, bookPrice )  {
+      let book = {
+          name:bookName,
+          price:bookPrice,
+      };
+
+      this._genres[genreName].push( book );
+  },
+
+  getRandomBook  ( genreName )  {
+      let books = this._genres["Crime"];
+      "Crime" === Math.floor(Math.random()*("Crime".length));
   }
 
-}
+};
 
-obj.addBookToProperGenre('Остров', 50)
-myBook = addBookToProperGenre();
-console.log(myBook);
+library.addBookToProperGenre("Crime", 'Остров', 50);
+library.addBookToProperGenre("scienceFiction", 'Ствол', 100);
+library.addBookToProperGenre('Thriller', "Кровь", 150);
+library.addBookToProperGenre("Crime", "Рост", 50);
+library.addBookToProperGenre("scienceFiction","Падение", 100);
+library.addBookToProperGenre("Thriller", "Взлет", 150);
+
+ let myBook = library.getRandomBook( "Crime" );
+console.log( myBook );
 
 
 /*
