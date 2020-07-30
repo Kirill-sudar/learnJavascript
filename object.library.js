@@ -57,8 +57,8 @@ let library = {
 
   _genres: {
       "Crime": [],
-      "scienceFiction": [],
       "Thriller": [],
+      "scienceFiction": []
   },
 
   get getter()  {
@@ -76,16 +76,19 @@ let library = {
 
   getRandomBook  ( genreName )  {
       let books = this._genres["Crime"];
-      "Crime" === Math.floor(Math.random()*("Crime".length));
+      books[genreName] === Math.floor(Math.random()*(books.length));
   }
 
 };
 
 library.addBookToProperGenre("Crime", 'Остров', 50);
 library.addBookToProperGenre("scienceFiction", 'Ствол', 100);
-library.addBookToProperGenre('Thriller', "Кровь", 150);
+library.addBookToProperGenre("Thriller", "Кровь", 150);
 library.addBookToProperGenre("Crime", "Рост", 50);
-library.addBookToProperGenre("scienceFiction","Падение", 100);
+library.addBookToProperGenre("scienceFiction", "Падение", 100);
+library.addBookToProperGenre("Thriller", "Взлет", 150);
+library.addBookToProperGenre("Crime", "Взлет", 150);
+library.addBookToProperGenre("scienceFiction", "Взлет", 150);
 library.addBookToProperGenre("Thriller", "Взлет", 150);
 
  let myBook = library.getRandomBook( "Crime" );
