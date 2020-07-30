@@ -75,8 +75,9 @@ let library = {
   },
 
   getRandomBook  ( genreName )  {
-      let books = this._genres["Crime"];
-      books[genreName] === Math.floor(Math.random()*(books.length));
+      let books = this._genres[genreName];
+      let index = Math.floor( Math.random()*( books.length ) );
+      return books[index];
   }
 
 };
