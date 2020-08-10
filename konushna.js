@@ -49,10 +49,10 @@
 // каждый раз разный случайный результат от 1 до 10.
 class Horse{
 
-  constructor( breed, color, isInStock )  {
-               this._breed = "breed";
-               this._color = "color";
-               this._isInStock = false;
+  constructor( breed, color )  {
+    this._breed = breed;
+    this._color = color;
+    this._isInStock = false;
   }
 
     get breed()  {
@@ -90,19 +90,21 @@ class Horse{
 
  class Arabian extends Horse  {
 
-   constructor(price, raceResults, breed, color, isInStock)  {
-     super(bread,color,isInStock)
+   constructor(breed, color)  {
+     super(breed,color)
      this._price=1000;
      this._raceResults=[];
    }
-
+//?! -> в чем разница с getPrice методом,какое значение этот метод тогда должен возвращать,если это уже делает геттер
        get price()  {
            return this._price
        }
 
+
        getAverageResults()  {
            let sum=this._raceResults.reduce((a, b)=>a+b,0);
-           let result=sum / this._raceResults.length;
+          let result=sum / this._raceResults.length;
+
        }
 
        addRaceResult(race)  {
@@ -122,18 +124,18 @@ class Horse{
 }
 
 
-class HorseDownloads extends Arabian{
+class Max extends Arabian{
 
-  constructor(price, raceResults, breed, color, isInStock){
-     super(price, raceResults, breed, color, isInStock)
-     Arabian.addRaceResult(1);
-     Arabian.addRaceResult(2);
-     Arabian.addRaceResult(3);
-     Arabian.addRaceResult(4);
-     Arabian.addRaceResult(5);
+  constructor( breed, color){
+     super(breed, color)
   }
-
 }
+
+const horse  = new Max("dvornaga","yellow")
+horse.addRaceResult(4);
+horse.getAverageResults();
+console.log(horse._price)
+
 
 // 11.
 // Узнайте какая цена вашего скакуна, спустя 5 забегов и продается ли он.
