@@ -69,11 +69,9 @@ class Horse{
 
         toggleInStockStatus()  {
 
-          if ( this._isInStock===false )  {
+          if ( this._isInStock===false || this._isInStock===true)  {
             this._isInStock=!this._isInStock;
           }
-          else ( this._isInStock===true )
-              this._isInStock=!this._isInStock;
 
        }
 
@@ -104,37 +102,36 @@ class Horse{
        getAverageResults()  {
            let sum=this._raceResults.reduce((a, b)=>a+b,0);
           let result=sum / this._raceResults.length;
+          return result;
 
        }
 
        addRaceResult(race)  {
-           this._raceResults.push(race);
+           this._raceResults.push( race );
 
-           if(this._raceResults<5){ this._price = (this._price*0.1)+this._price; }
-           else if(this._raceResults>5){this._price = this._price-(this._price*0.1);}
-           else if (this._raceResults=5) {this._price = this._price }
-           else if(this._raceResults<=2){this._price="Не продается"}
+           if ( race < 5 ){ this._price = (this._price*0.1)+this._price; }
+           else if ( race > 5 ) { this._price = this._price - ( this._price*0.1 ); }
+           else if ( race === 5 ) { this._price=this._price;}
+           else if ( race <= 2 ) { this.toggleInStockStatus(); }
 
+           this.raceResults=this.getAverageResults();
        }
 
        getPrice()  {
-        return this._price;
+        return this._price
        }
 
 }
 
 
-class Max extends Arabian{
-
-  constructor( breed, color){
-     super(breed, color)
-  }
-}
-
-const horse  = new Max("dvornaga","yellow")
+let horse=new Arabian("dvor","green")
+horse.addRaceResult(3);
 horse.addRaceResult(4);
-horse.getAverageResults();
-console.log(horse._price)
+horse.addRaceResult(3);
+horse.addRaceResult(1);
+horse.addRaceResult(3);
+console.log(horse.price)
+console.log(horse.isInStock)
 
 
 // 11.
