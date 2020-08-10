@@ -109,10 +109,10 @@ class Horse{
        addRaceResult(race)  {
            this._raceResults.push( race );
 
-           if ( race < 5 ){ this._price = (this._price*0.1)+this._price; }
-           else if ( race > 5 ) { this._price = this._price - ( this._price*0.1 ); }
-           else if ( race === 5 ) { this._price=this._price;}
-           else if ( race <= 2 ) { this.toggleInStockStatus(); }
+           if (     this.getAverageResults() < 5 ){ this._price = (this._price*0.1)+this._price; }
+           else if (     this.getAverageResults() > 5 ) { this._price = this._price - ( this._price*0.1 ); }
+           else if (     this.getAverageResults() === 5 ) { this._price=this._price;}
+           else if (     this.getAverageResults() <= 2 ) { this.toggleInStockStatus(); }
 
            this.raceResults=this.getAverageResults();
        }
