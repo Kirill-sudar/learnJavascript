@@ -50,35 +50,40 @@
 class Horse{
 
   constructor( breed, color, isInStock )  {
-    this._breed = false;
-    this._color = false;
-    this._isInStock = false;
+               this._breed = "breed";
+               this._color = "color";
+               this._isInStock = false;
   }
 
-      get breed()  {
-          return  this._breed;
+    get breed()  {
+        return  this._breed;
+    }
+
+    get color()  {
+        return  this._color;
+    }
+
+    get isInStock()  {
+        return  this._isInStock;
+    }
+
+        toggleInStockStatus()  {
+
+          if ( this._isInStock===false )  {
+            this._isInStock=!this._isInStock;
           }
+          else ( this._isInStock===true )
+              this._isInStock=!this._isInStock;
 
-      get color()  {
-          return  this._color;
-          }
+       }
 
-      get isInStock()  {
-          return  this._isInStock;
-          }
+    set isInStock(value)  {
 
-      toggleInStockStatus()  {
+        if( typeof value === 'boolean' ) {
+            this._isInStock=value;
+        }
 
-          if( this._isInStock===false )  { this._isInStock === true;
-          }
-          else( this._isInStock===true )  { this._isInStock === false;
-           }
-
-      }
-
-      set isInStock()  {
-          return this._isInStock;
-          }
+    }
 
 }
 
@@ -93,7 +98,7 @@ class Horse{
 
        get price()  {
            return this._price
-           }
+       }
 
        getAverageResults()  {
            let sum=this._raceResults.reduce((a, b)=>a+b,0);
