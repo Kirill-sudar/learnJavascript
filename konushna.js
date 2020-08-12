@@ -117,9 +117,7 @@ class Horse{
            this.raceResults=this.getAverageResults();
        }
 
-       getPrice()  {
-        return this._price
-       }
+
 
 }
 
