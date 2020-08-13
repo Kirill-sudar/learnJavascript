@@ -126,11 +126,16 @@ class Horse{
 }
 
 
-const horse = new Arabian( "dvor", "green" )
-horse.addRaceResult(2, 1, 5, 5, 6);
-
-console.log( horse.price )
-console.log( horse.isInStock )
+let horse = new Arabian('arabian', 'snow-white');
+function goHorseRacing() {
+  for (let i = 1; i <= 5; i++) {
+    horse.addRaceResult(Math.floor(Math.random()*10));
+  }
+}
+goHorseRacing();
+console.log("Скакун ")
+console.log( "Цена скакуна :"+ horse.price )
+console.log( "Продается: "+ horse.isInStock )
 
 
 // 11.
