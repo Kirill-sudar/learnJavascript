@@ -69,8 +69,8 @@ class Horse{
 
         toggleInStockStatus()  {
 
-          if ( this._isInStock===false || this._isInStock===true)  {
-            this._isInStock=!this._isInStock;
+          if ( this._isInStock === false || this._isInStock === true)  {
+            this._isInStock = !this._isInStock;
           }
 
        }
@@ -89,8 +89,8 @@ class Horse{
 
    constructor(breed, color)  {
      super(breed,color)
-     this._price=1000;
-     this._raceResults=[];
+     this._price = 1000;
+     this._raceResults= [];
    }
 //?! -> в чем разница с getPrice методом,какое значение этот метод тогда должен возвращать,если это уже делает геттер
        get price()  {
@@ -99,10 +99,10 @@ class Horse{
 
 
        getAverageResults()  {
-         if(this._raceResults.length=0)return console.log("Не было заездов")
-           let sum=this._raceResults.reduce((a, b)=>a+b,0);
-          let result=sum / this._raceResults.length;
-          return result;
+         if(this._raceResults.length=0) return console.log( "Не было заездов" )
+           let sum = this._raceResults.reduce( (a, b) => a+b, 0);
+           let result = sum / this._raceResults.length;
+           return result;
 
        }
 
@@ -126,11 +126,11 @@ class Horse{
 }
 
 
-const horse=new Arabian("dvor","green")
-horse.addRaceResult(2,1,5,5,6);
+const horse = new Arabian( "dvor", "green" )
+horse.addRaceResult(2, 1, 5, 5, 6);
 
-console.log(horse.price)
-console.log(horse.isInStock)
+console.log( horse.price )
+console.log( horse.isInStock )
 
 
 // 11.
