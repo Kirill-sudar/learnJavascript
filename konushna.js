@@ -77,9 +77,8 @@ class Horse{
 
     set isInStock(value)  {
 
-        if( typeof value === 'boolean' ) {
-            this._isInStock=value;
-        }
+        if( typeof value === 'boolean' ) return;
+            this._isInStock = value;
 
     }
 
@@ -100,34 +99,36 @@ class Horse{
 
 
        getAverageResults()  {
+         if(this._raceResults.length=0)return console.log("Не было заездов")
            let sum=this._raceResults.reduce((a, b)=>a+b,0);
           let result=sum / this._raceResults.length;
           return result;
 
        }
 
-       addRaceResult(race)  {
-           this._raceResults.push( race );
+       addRaceResult(res) {
+               if (typeof res !== 'number') console.log("Тип данный должен быть числовым");
 
-           if (     this.getAverageResults() < 5 ){ this._price = (this._price*0.1)+this._price; }
-           else if (     this.getAverageResults() > 5 ) { this._price = this._price - ( this._price*0.1 ); }
-           else if (     this.getAverageResults() === 5 ) { this._price=this._price;}
-           else if (     this.getAverageResults() <= 2 ) { this.toggleInStockStatus(); }
+               this._raceResults.push(res);
 
-           this.raceResults=this.getAverageResults();
-       }
+               let avg = this.getAverageResults();
+               let gaineAmount = Math.floor(this._price * 0.1);
+
+               if (avg > 5) this._price -= gaineAmount;
+
+               if (avg < 5) this._price += gaineAmount;
+
+               this._isInStock = avg <= 2 ?  false : true;
+      }
 
 
 
 }
 
 
-let horse=new Arabian("dvor","green")
-horse.addRaceResult(3);
-horse.addRaceResult(4);
-horse.addRaceResult(3);
-horse.addRaceResult(1);
-horse.addRaceResult(3);
+const horse=new Arabian("dvor","green")
+horse.addRaceResult(2,1,5,5,6);
+
 console.log(horse.price)
 console.log(horse.isInStock)
 
