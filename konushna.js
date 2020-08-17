@@ -92,22 +92,27 @@ class Horse{
      this._price = 1000;
      this._raceResults= [];
    }
-//?! -> в чем разница с getPrice методом,какое значение этот метод тогда должен возвращать,если это уже делает геттер
+
        get price()  {
            return this._price
        }
 
 
        getAverageResults()  {
-         if(this._raceResults.length=0) return console.log( "Не было заездов" )
-           let sum = this._raceResults.reduce( (a, b) => a+b, 0);
-           let result = sum / this._raceResults.length;
-           return result;
+         let l = this._raceResults.length;
+
+  if (l <= 0) console.log("Лошадь еще не принимала участие в забегах");
+  let sum = this._raceResults.reduce((sum, i) => sum + i);
+
+return Math.floor(sum / l);
 
        }
 
        addRaceResult(res) {
-               if (typeof res !== 'number') console.log("Тип данный должен быть числовым");
+         if (typeof res !== 'number') {
+console.log("Тип данный должен быть числовым");
+return;
+}
 
                this._raceResults.push(res);
 
@@ -127,12 +132,14 @@ class Horse{
 
 
 let horse = new Arabian('arabian', 'snow-white');
+
 function goHorseRacing() {
   for (let i = 1; i <= 5; i++) {
     horse.addRaceResult(Math.floor(Math.random()*10));
   }
 }
-goHorseRacing();
+goHorseRacing()
+
 console.log("Скакун ")
 console.log( "Цена скакуна :"+ horse.price )
 console.log( "Продается: "+ horse.isInStock )
