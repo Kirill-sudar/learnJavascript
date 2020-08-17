@@ -47,6 +47,13 @@
 // 10.
 // Создайте экземпляр класса Arabian. И отправьте его на скачки 5 раз, записывая
 // каждый раз разный случайный результат от 1 до 10.
+
+// 11.
+// Узнайте какая цена вашего скакуна, спустя 5 забегов и продается ли он.
+
+
+// {ваш код здесь}
+
 class Horse{
 
   constructor( breed, color )  {
@@ -100,19 +107,19 @@ class Horse{
 
        getAverageResults()  {
          let l = this._raceResults.length;
+         if (l <= 0) console.log("Лошадь еще не принимала участие в забегах");
 
-  if (l <= 0) console.log("Лошадь еще не принимала участие в забегах");
-  let sum = this._raceResults.reduce((sum, i) => sum + i);
+         let sum = this._raceResults.reduce((sum, i) => sum + i);
 
-return Math.floor(sum / l);
+         return Math.floor(sum / l);
 
        }
 
        addRaceResult(res) {
          if (typeof res !== 'number') {
-console.log("Тип данный должен быть числовым");
-return;
-}
+         console.log("Тип данный должен быть числовым");
+         return;
+         }
 
                this._raceResults.push(res);
 
@@ -126,12 +133,10 @@ return;
                this._isInStock = avg <= 2 ?  false : true;
       }
 
-
-
 }
 
 
-let horse = new Arabian('arabian', 'snow-white');
+let horse = new Arabian('arabian', ' snow-white');
 
 function goHorseRacing() {
   for (let i = 1; i <= 5; i++) {
@@ -140,16 +145,10 @@ function goHorseRacing() {
 }
 goHorseRacing()
 
-console.log("Скакун ")
+console.log("Скакун: "+horse.breed + horse.color)
 console.log( "Цена скакуна :"+ horse.price )
 console.log( "Продается: "+ horse.isInStock )
 
-
-// 11.
-// Узнайте какая цена вашего скакуна, спустя 5 забегов и продается ли он.
-
-
-// {ваш код здесь}
 
 /*
 
